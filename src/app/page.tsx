@@ -9,6 +9,7 @@ import PiggyBankSection from "@/components/sections/PiggyBankSection";
 import MonthlyReportSection from "@/components/sections/MonthlyReportSection";
 import CTASection from "@/components/sections/CTASection";
 import DotNavigation from "@/components/ui/DotNavigation";
+import PawTrail from "@/components/ui/PawTrail";
 import { useActiveSection } from "@/hooks/useActiveSection";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
   return (
     <>
       <DotNavigation activeIndex={activeIndex} />
+      <PawTrail />
       <main>
         <LandingHeroSection />
         <HeroSection />

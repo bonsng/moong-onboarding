@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ScreenshotFrame from "@/components/ui/ScreenshotFrame";
-import FloatingEmoji from "@/components/ui/FloatingEmoji";
+
 import { SCREENSHOTS } from "@/lib/constants";
 import {
   fadeInLeft,
@@ -94,9 +94,6 @@ export default function FamilyExpenseSection() {
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <FloatingEmoji emoji="📊" className="top-[10%] right-[5%]" delay={0.3} />
-      <FloatingEmoji emoji="👨‍👩‍👧" className="bottom-[15%] left-[5%]" delay={0.8} />
-      <FloatingEmoji emoji="💳" className="top-[35%] left-[3%]" delay={1.2} size="text-lg" />
     </AnimatedSection>
   );
 }

@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import AnimatedSection from "@/components/ui/AnimatedSection";
-import FloatingEmoji from "@/components/ui/FloatingEmoji";
+
 import { fadeInUp, bounceIn, staggerContainer } from "@/lib/animations";
 
 function Particle({ delay }: { delay: number }) {
@@ -88,10 +88,9 @@ export default function CTASection() {
 
         <motion.h2
           variants={fadeInUp}
-          className="text-3xl md:text-5xl font-bold text-white leading-tight"
+          className="text-3xl md:text-5xl font-bold text-white leading-tight whitespace-nowrap"
         >
-          지금 바로
-          <br />
+          지금 바로{" "}
           <motion.span
             className="text-amber-900 inline-block"
             animate={{ scale: [1, 1.05, 1] }}
@@ -152,12 +151,6 @@ export default function CTASection() {
         </motion.div>
       </motion.div>
 
-      <FloatingEmoji emoji="🐾" className="top-[10%] left-[10%]" delay={0} size="text-3xl" />
-      <FloatingEmoji emoji="🐾" className="top-[15%] right-[12%]" delay={0.4} size="text-2xl" />
-      <FloatingEmoji emoji="🐾" className="bottom-[20%] left-[15%]" delay={0.8} size="text-xl" />
-      <FloatingEmoji emoji="🐾" className="bottom-[25%] right-[10%]" delay={1.2} size="text-3xl" />
-      <FloatingEmoji emoji="💛" className="top-[30%] left-[5%]" delay={0.6} size="text-xl" />
-      <FloatingEmoji emoji="💛" className="bottom-[10%] right-[20%]" delay={1} size="text-lg" />
     </AnimatedSection>
   );
 }

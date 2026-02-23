@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ScreenshotFrame from "@/components/ui/ScreenshotFrame";
-import FloatingEmoji from "@/components/ui/FloatingEmoji";
+
 import { SCREENSHOTS } from "@/lib/constants";
 import {
   fadeInUp,
@@ -33,7 +33,7 @@ export default function MonthlyReportSection() {
         <motion.div variants={fadeInRight} className="flex-1 space-y-6">
           <SectionHeading
             emoji="💌"
-            title="띠링! 뭉뭉이의 월간 소비 레포트가 도착했습니다"
+            title={["띠링! 뭉뭉이의", "월간 소비 레포트가 도착했습니다"]}
             description={[
               '"이번 달 뭉뭉이에게 누가 가장 많이 썼을까?"',
               '"다음달에 얼마나 쓸까?"',
@@ -164,9 +164,6 @@ export default function MonthlyReportSection() {
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <FloatingEmoji emoji="📬" className="top-[12%] left-[6%]" delay={0.4} />
-      <FloatingEmoji emoji="✨" className="bottom-[15%] right-[8%]" delay={1} />
-      <FloatingEmoji emoji="📋" className="top-[35%] right-[3%]" delay={1.4} size="text-lg" />
     </AnimatedSection>
   );
 }

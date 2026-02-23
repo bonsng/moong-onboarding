@@ -1,14 +1,12 @@
 "use client";
 
 import { motion } from "motion/react";
+import Image from "next/image";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionHeading from "@/components/ui/SectionHeading";
-import ScreenshotFrame from "@/components/ui/ScreenshotFrame";
-import FloatingEmoji from "@/components/ui/FloatingEmoji";
-import { SCREENSHOTS } from "@/lib/constants";
+
 import {
   fadeInLeft,
-  fadeInRight,
   bounceIn,
   staggerContainer,
   staggerContainerSlow,
@@ -115,26 +113,49 @@ export default function PiggyBankSection() {
         </motion.div>
 
         <motion.div variants={bounceIn} className="flex-1 relative">
-          <motion.div
-            animate={{ y: [0, -8, 0], rotate: [0, 1, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <ScreenshotFrame
-              src={SCREENSHOTS.piggyBank}
-              alt="뭉뭉이 저금통"
-              label="저금통 미리보기"
-              themeColor="#FF6B81"
-            />
-          </motion.div>
+          <div className="relative w-full aspect-[4/5] max-w-[480px] mx-auto rounded-3xl bg-gradient-to-b from-[#FFE680] to-[#FFD633] overflow-hidden shadow-lg border border-amber-300/50">
+            {/* Falling coins */}
+            {Array.from({ length: 8 }).map((_, i) => {
+              const size = 60 + (i % 3) * 16;
+              const leftPct = 10 + (i * 13) % 70;
+
+              return (
+                <motion.div
+                  key={i}
+                  className="absolute"
+                  style={{
+                    left: `${leftPct}%`,
+                    width: size,
+                    height: size,
+                  }}
+                  animate={{
+                    y: [-80, 500],
+                    opacity: [0, 1, 1, 0],
+                    rotate: [0, 360 * (i % 2 === 0 ? 1 : -1)],
+                  }}
+                  transition={{
+                    duration: 3 + i * 0.3,
+                    repeat: Infinity,
+                    delay: i * 0.5,
+                    ease: "easeIn",
+                  }}
+                >
+                  <Image
+                    src="/images/screenshots/img_coin_texture.png"
+                    alt="coin"
+                    width={52}
+                    height={52}
+                    className="w-full h-full object-contain"
+                  />
+                </motion.div>
+              );
+            })}
+          </div>
 
           <div className="absolute -inset-8 -z-10 bg-gradient-to-br from-pink-200/20 via-transparent to-rose-200/10 rounded-3xl blur-2xl" />
         </motion.div>
       </motion.div>
 
-      <FloatingEmoji emoji="💰" className="top-[10%] right-[10%]" delay={0.3} />
-      <FloatingEmoji emoji="🐾" className="bottom-[12%] left-[8%]" delay={0.9} />
-      <FloatingEmoji emoji="🪙" className="top-[40%] right-[3%]" delay={1.5} size="text-lg" />
-      <FloatingEmoji emoji="🎀" className="bottom-[30%] right-[15%]" delay={0.6} size="text-lg" />
     </AnimatedSection>
   );
 }

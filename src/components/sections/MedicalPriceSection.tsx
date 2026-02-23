@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ScreenshotFrame from "@/components/ui/ScreenshotFrame";
-import FloatingEmoji from "@/components/ui/FloatingEmoji";
+
 import { SCREENSHOTS } from "@/lib/constants";
 import {
   fadeInUp,
@@ -108,9 +108,6 @@ export default function MedicalPriceSection() {
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <FloatingEmoji emoji="💉" className="top-[12%] right-[8%]" delay={0.3} />
-      <FloatingEmoji emoji="📋" className="bottom-[15%] left-[6%]" delay={0.8} />
-      <FloatingEmoji emoji="🩺" className="top-[40%] left-[4%]" delay={1.2} size="text-lg" />
     </AnimatedSection>
   );
 }

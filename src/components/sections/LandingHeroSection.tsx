@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import dynamic from "next/dynamic";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ScrollIndicator from "@/components/ui/ScrollIndicator";
-import FloatingEmoji from "@/components/ui/FloatingEmoji";
+
 
 const ShibaModel = dynamic(() => import("@/components/ui/ShibaModel"), {
   ssr: false,
@@ -62,7 +62,7 @@ export default function LandingHeroSection() {
             <motion.button
               onClick={() =>
                 document
-                  .getElementById("cta")
+                  .getElementById("hero")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
               className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-500 text-white font-semibold rounded-full px-10 py-4 text-lg transition-colors shadow-lg shadow-amber-200/50"
@@ -104,11 +104,6 @@ export default function LandingHeroSection() {
           <ShibaModel />
         </motion.div>
       </div>
-
-      <FloatingEmoji emoji="🐾" className="top-[12%] left-[5%]" delay={0} />
-      <FloatingEmoji emoji="🐾" className="bottom-[18%] right-[10%]" delay={1} />
-      <FloatingEmoji emoji="💛" className="top-[20%] right-[15%]" delay={1.5} size="text-xl" />
-      <FloatingEmoji emoji="🦴" className="bottom-[30%] left-[8%]" delay={2} size="text-lg" />
 
       <ScrollIndicator />
     </AnimatedSection>

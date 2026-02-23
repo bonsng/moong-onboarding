@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ScreenshotFrame from "@/components/ui/ScreenshotFrame";
-import FloatingEmoji from "@/components/ui/FloatingEmoji";
+
 import { SCREENSHOTS } from "@/lib/constants";
 import {
   fadeInUp,
@@ -33,7 +33,7 @@ export default function AIPredictionSection() {
         <motion.div variants={fadeInRight} className="flex-1 space-y-6">
           <SectionHeading
             emoji="🤖"
-            title="뭉뭉이를 위한 미래 병원비, AI로 먼저 만나보세요!"
+            title={["뭉뭉이를 위한 미래 병원비,", "AI로 먼저 만나보세요!"]}
             description={[
               "예측하고 대비하는 반려견 의료비 솔루션",
               "서울특별시 동물병원 4,000건 실제 진료 데이터를 학습한 AI가 노견의 질병 발병 확률과 예상 의료비를 똑똑하게 예측해드립니다.",
@@ -113,9 +113,6 @@ export default function AIPredictionSection() {
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <FloatingEmoji emoji="🏥" className="top-[12%] left-[8%]" delay={0.2} />
-      <FloatingEmoji emoji="📈" className="bottom-[18%] right-[6%]" delay={0.7} />
-      <FloatingEmoji emoji="🧬" className="bottom-[30%] left-[3%]" delay={1.3} size="text-lg" />
     </AnimatedSection>
   );
 }
