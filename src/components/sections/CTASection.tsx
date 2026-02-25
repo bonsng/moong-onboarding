@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
+import { Dog, PawPrint } from "lucide-react";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 import { fadeInUp, bounceIn, staggerContainer } from "@/lib/animations";
@@ -12,6 +13,8 @@ function Particle({ delay }: { delay: number }) {
     animDuration: 3 + Math.random() * 4,
     size: 4 + Math.random() * 8,
     xDrift: (Math.random() - 0.5) * 100,
+    hue: 30 + Math.random() * 30,
+    lightness: 70 + Math.random() * 20,
   }));
 
   return (
@@ -21,7 +24,7 @@ function Particle({ delay }: { delay: number }) {
         left: style.left,
         width: style.size,
         height: style.size,
-        background: `hsl(${30 + Math.random() * 30}, 100%, ${70 + Math.random() * 20}%)`,
+        background: `hsl(${style.hue}, 100%, ${style.lightness}%)`,
       }}
       animate={{
         y: [0, -window.innerHeight * 0.8],
@@ -39,9 +42,10 @@ function Particle({ delay }: { delay: number }) {
   );
 }
 
+const emptySubscribe = () => () => { };
+
 function Particles() {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
   if (!mounted) return null;
 
   return (
@@ -82,7 +86,7 @@ export default function CTASection() {
               ease: "easeInOut",
             }}
           >
-            🐶
+            <Dog className="w-16 h-16 md:w-20 md:h-20 text-amber-800" />
           </motion.span>
         </motion.div>
 
@@ -116,11 +120,13 @@ export default function CTASection() {
             className="relative inline-flex items-center gap-3 bg-white text-amber-600 font-bold rounded-full px-10 py-4 text-lg shadow-xl overflow-hidden group"
             whileHover={{ scale: 1.07, y: -3 }}
             whileTap={{ scale: 0.96 }}
-            animate={{ boxShadow: [
-              "0 10px 25px rgba(0,0,0,0.1)",
-              "0 20px 40px rgba(0,0,0,0.15)",
-              "0 10px 25px rgba(0,0,0,0.1)",
-            ]}}
+            animate={{
+              boxShadow: [
+                "0 10px 25px rgba(0,0,0,0.1)",
+                "0 20px 40px rgba(0,0,0,0.15)",
+                "0 10px 25px rgba(0,0,0,0.1)",
+              ]
+            }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           >
             {/* Shimmer overlay */}
@@ -135,7 +141,7 @@ export default function CTASection() {
               animate={{ rotate: [0, 15, -15, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
             >
-              🐾
+              <PawPrint className="w-5 h-5" />
             </motion.span>
           </motion.a>
         </motion.div>

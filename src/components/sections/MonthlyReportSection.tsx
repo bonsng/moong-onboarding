@@ -1,11 +1,10 @@
 "use client";
 
 import { motion } from "motion/react";
+import { type LucideIcon, Mail, BarChart3, User, UserRound, UserRoundCheck } from "lucide-react";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ScreenshotFrame from "@/components/ui/ScreenshotFrame";
-
-import { SCREENSHOTS } from "@/lib/constants";
 import {
   fadeInUp,
   fadeInRight,
@@ -15,10 +14,10 @@ import {
 } from "@/lib/animations";
 
 const members = [
-  { name: "아빠", pct: 93.7, color: "#8B6914", emoji: "👨" },
-  { name: "엄마", pct: 5.3, color: "#FFB347", emoji: "👩" },
-  { name: "나", pct: 0.5, color: "#FF6B81", emoji: "🧑" },
-];
+  { name: "아빠", pct: 93.7, color: "#8B6914", icon: User },
+  { name: "엄마", pct: 5.3, color: "#FFB347", icon: UserRound },
+  { name: "나", pct: 0.5, color: "#FF6B81", icon: UserRoundCheck },
+] satisfies { name: string; pct: number; color: string; icon: LucideIcon }[];
 
 export default function MonthlyReportSection() {
   return (
@@ -32,7 +31,7 @@ export default function MonthlyReportSection() {
       >
         <motion.div variants={fadeInRight} className="flex-1 space-y-6">
           <SectionHeading
-            emoji="💌"
+            emoji={<Mail className="w-10 h-10 text-green-500" />}
             title={["띠링! 뭉뭉이의", "월간 소비 레포트가 도착했습니다"]}
             description={[
               '"이번 달 뭉뭉이에게 누가 가장 많이 썼을까?"',
@@ -57,7 +56,7 @@ export default function MonthlyReportSection() {
                   animate={{ scale: [1, 1.08, 1] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <span className="text-lg">📊</span>
+                  <BarChart3 className="w-5 h-5 text-green-500" />
                   <motion.div
                     className="absolute -top-1 -right-1 w-4 h-4 bg-red-400 rounded-full flex items-center justify-center"
                     variants={popIn}
@@ -92,7 +91,7 @@ export default function MonthlyReportSection() {
                   >
                     <div className="flex justify-between text-xs items-center">
                       <span className="text-gray-600 font-medium flex items-center gap-1.5">
-                        <span>{member.emoji}</span>
+                        <member.icon className="w-3.5 h-3.5" />
                         {member.name}
                       </span>
                       <motion.span

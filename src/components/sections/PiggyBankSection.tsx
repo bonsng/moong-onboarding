@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { Target, PiggyBank, Trophy } from "lucide-react";
 import Image from "next/image";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -13,9 +14,9 @@ import {
 } from "@/lib/animations";
 
 const steps = [
-  { step: "1", text: "목표를 세우고", icon: "🎯", color: "bg-pink-100" },
-  { step: "2", text: "저금하고", icon: "💰", color: "bg-amber-100" },
-  { step: "3", text: "랭킹으로 자극받기", icon: "🏆", color: "bg-yellow-100" },
+  { step: "1", text: "목표를 세우고", icon: Target, color: "bg-pink-100" },
+  { step: "2", text: "저금하고", icon: PiggyBank, color: "bg-amber-100" },
+  { step: "3", text: "랭킹으로 자극받기", icon: Trophy, color: "bg-yellow-100" },
 ];
 
 export default function PiggyBankSection() {
@@ -30,7 +31,7 @@ export default function PiggyBankSection() {
       >
         <motion.div variants={fadeInLeft} className="flex-1 space-y-6">
           <SectionHeading
-            emoji="🐽"
+            emoji={<PiggyBank className="w-10 h-10 text-pink-400" />}
             title="함께 채워나가는 뭉뭉이 저금통"
             description={[
               '"누가 뭉뭉이를 가장 사랑할까?"',
@@ -61,7 +62,7 @@ export default function PiggyBankSection() {
                     transition: { duration: 0.5 },
                   }}
                 >
-                  {item.icon}
+                  <item.icon className="w-5 h-5 text-pink-400" />
                 </motion.div>
                 <div className="flex items-center gap-2">
                   <span className="text-xs font-bold text-pink-400 bg-pink-50 rounded-full w-6 h-6 flex items-center justify-center border border-pink-100">

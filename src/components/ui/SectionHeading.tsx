@@ -4,8 +4,8 @@ import { motion } from "motion/react";
 import type { Variants } from "motion/react";
 
 interface SectionHeadingProps {
-  emoji?: string;
-  title: string | string[];
+  emoji?: React.ReactNode;
+  title: React.ReactNode | React.ReactNode[];
   description: string | string[];
   variants?: Variants;
   light?: boolean;

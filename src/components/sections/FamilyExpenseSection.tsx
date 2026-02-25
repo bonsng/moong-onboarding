@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { CalendarDays } from "lucide-react";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ScreenshotFrame from "@/components/ui/ScreenshotFrame";
@@ -28,8 +29,8 @@ export default function FamilyExpenseSection() {
       >
         <motion.div variants={fadeInLeft} className="flex-1 space-y-6">
           <SectionHeading
-            emoji="📅"
-            title={'한눈에 "뭉"쳐서 보는 반려견 가족 가계부'}
+            emoji={<CalendarDays className="w-10 h-10 text-amber-500" />}
+            title={<>한눈에 <span className="text-amber-500">뭉</span>쳐서 보는 반려견 가족 가계부</>}
             description={[
               '"우리 뭉뭉이 수술비는 누가 결제했지?"',
               '"우리 뭉뭉이 의료비, 어디에 가장 많이 쓰였을까?"',

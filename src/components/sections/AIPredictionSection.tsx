@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { BarChart3, Bot, Hospital } from "lucide-react";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ScreenshotFrame from "@/components/ui/ScreenshotFrame";
@@ -15,9 +16,9 @@ import {
 } from "@/lib/animations";
 
 const features = [
-  { label: "연간 질병 위험도", desc: "발병 확률 그래프", icon: "📊" },
-  { label: "AI 의료비 예측", desc: "20살까지 예상 비용", icon: "🤖" },
-  { label: "4,000건 데이터", desc: "서울시 동물병원 실제 진료", icon: "🏥" },
+  { label: "연간 질병 위험도", desc: "발병 확률 그래프", icon: BarChart3 },
+  { label: "AI 의료비 예측", desc: "20살까지 예상 비용", icon: Bot },
+  { label: "4,000건 데이터", desc: "서울시 동물병원 실제 진료", icon: Hospital },
 ];
 
 export default function AIPredictionSection() {
@@ -32,7 +33,7 @@ export default function AIPredictionSection() {
       >
         <motion.div variants={fadeInRight} className="flex-1 space-y-6">
           <SectionHeading
-            emoji="🤖"
+            emoji={<Bot className="w-10 h-10 text-blue-500" />}
             title={["뭉뭉이를 위한 미래 병원비,", "AI로 먼저 만나보세요!"]}
             description={[
               "예측하고 대비하는 반려견 의료비 솔루션",
@@ -54,21 +55,12 @@ export default function AIPredictionSection() {
                   whileHover={{ rotate: [0, -10, 10, 0] }}
                   transition={{ duration: 0.5 }}
                 >
-                  {item.icon}
+                  <item.icon className="w-5 h-5 text-blue-500" />
                 </motion.div>
                 <div>
                   <p className="font-semibold text-gray-800 text-sm">{item.label}</p>
                   <p className="text-xs text-gray-500">{item.desc}</p>
                 </div>
-                <motion.div
-                  className="ml-auto w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center"
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.8 + i * 0.2, type: "spring", stiffness: 300 }}
-                >
-                  <span className="text-blue-400 text-xs">✓</span>
-                </motion.div>
               </motion.div>
             ))}
           </motion.div>

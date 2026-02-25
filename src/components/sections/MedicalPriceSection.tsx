@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { Pill } from "lucide-react";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ScreenshotFrame from "@/components/ui/ScreenshotFrame";
@@ -32,7 +33,7 @@ export default function MedicalPriceSection() {
       >
         <motion.div variants={fadeInLeft} className="flex-1 space-y-6">
           <SectionHeading
-            emoji="💊"
+            emoji={<Pill className="w-10 h-10 text-indigo-500" />}
             title="우리 동네 동물병원의 진료비는 얼마일까?"
             description={[
               "약 1,000건의 실제 진료비 크롤링 데이터를 분석해,",
