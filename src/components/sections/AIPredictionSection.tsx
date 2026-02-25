@@ -78,23 +78,6 @@ export default function AIPredictionSection() {
               themeColor="#5B9FE3"
             />
           </motion.div>
-
-          <motion.svg
-            className="absolute -bottom-4 -left-4 w-32 h-16 opacity-20"
-            viewBox="0 0 128 64"
-            fill="none"
-          >
-            <motion.path
-              d="M0 48 C32 48, 32 16, 64 16 C96 16, 96 32, 128 8"
-              stroke="#5B9FE3"
-              strokeWidth="3"
-              strokeLinecap="round"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 2, delay: 0.5, ease: "easeInOut" }}
-            />
-          </motion.svg>
         </motion.div>
       </motion.div>
 
