@@ -74,7 +74,7 @@ export default function AIPredictionSection() {
           </motion.div>
         </motion.div>
 
-        <motion.div variants={fadeInLeft} className="flex-1 relative">
+        <motion.div variants={fadeInLeft} className="flex-[1.6] relative">
           <motion.div
             animate={{ y: [0, -6, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}

@@ -84,7 +84,7 @@ export default function MedicalPriceSection() {
           </motion.div>
         </motion.div>
 
-        <motion.div variants={fadeInRight} className="flex-1 relative">
+        <motion.div variants={fadeInRight} className="flex-[1.6] relative">
           <motion.div
             animate={{ y: [0, -6, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}

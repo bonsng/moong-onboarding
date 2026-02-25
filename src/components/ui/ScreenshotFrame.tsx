@@ -39,7 +39,7 @@ export default function ScreenshotFrame({
           width={800}
           height={600}
           className="w-full h-auto rounded-2xl"
-          sizes="(max-width: 768px) 90vw, 500px"
+          sizes="(max-width: 768px) 90vw, 800px"
           priority={priority}
           onError={() => setHasError(true)}
         />

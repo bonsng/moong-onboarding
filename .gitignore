@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# project docs
+온보딩.md
+온보딩.pdf
+
+.omc/*
+.claude

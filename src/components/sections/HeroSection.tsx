@@ -87,7 +87,7 @@ export default function HeroSection() {
 
         <motion.div
           variants={scaleIn}
-          className="flex-1 relative"
+          className="flex-[1.6] relative"
         >
           <motion.div
             animate={{ y: [0, -8, 0] }}

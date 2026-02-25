@@ -60,7 +60,7 @@ export default function FamilyExpenseSection() {
 
         <motion.div
           variants={fadeInRight}
-          className="flex-1 flex flex-col gap-6 justify-center"
+          className="flex-[1.6] flex flex-col gap-6 justify-center"
         >
           <motion.div
             animate={{ y: [0, -5, 0] }}
